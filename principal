@@ -1,0 +1,41 @@
+# 🎵 Comparador de Planilhas de Músicas
+
+Este é um aplicativo web feito em **Python + Streamlit** para comparar planilhas do Excel.  
+O objetivo é identificar quais músicas estão na planilha **principal** e nas **secundárias**.
+
+## 🚀 Como funciona
+1. Faça o upload da **planilha principal** (precisa ter uma coluna chamada **"Musica"**).
+2. Faça o upload de uma ou mais **planilhas secundárias** (também com a coluna **"Musica"**).
+3. O app vai comparar os nomes das músicas (pela coluna "Musica") e mostrar:
+   - **both** → músicas presentes em ambas
+   - **left_only** → músicas só na planilha principal
+   - **right_only** → músicas só na secundária
+4. Você pode **baixar um relatório consolidado em Excel** com todas as comparações.
+
+## 📊 Exemplo de resultado
+
+| Musica         | CampoPrincipal | CampoSecundaria | _merge     |
+|----------------|----------------|-----------------|------------|
+| Música A       | valor1         | valor1          | both       |
+| Música B       | valor2         | NaN             | left_only  |
+| Música C       | NaN            | valor3          | right_only |
+
+- `NaN` significa que não existe informação naquela planilha para a música.
+
+## 🌐 Como acessar
+O app está publicado no **Streamlit Cloud**.  
+Basta acessar o link (fornecido pelo administrador) em qualquer navegador.
+
+## ⚠️ Regras importantes
+- Todas as planilhas precisam estar em formato **Excel (.xlsx)**.
+- A coluna **"Musica"** deve estar presente na **coluna A**.
+- Outros campos podem variar, o app vai unificar os que encontrar.
+
+## 🛠️ Para desenvolvedores
+Se quiser rodar o projeto localmente:
+
+```bash
+git clone https://github.com/seuusuario/comparador-planilhas.git
+cd comparador-planilhas
+pip install -r requirements.txt
+streamlit run app.py
